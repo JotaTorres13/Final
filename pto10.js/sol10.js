@@ -13,61 +13,61 @@ function crearCuenta(nombre,saldoIn) { // empiezo la funcion para crear la cuent
      console.log(`cuenta creada con exito${nombre} y tu saldo es ${saldoIn}`);
 
 }
-function depositoDinero(nombre, cantidad) {
+function depositoDinero(nombre, cantidad) {   // creacion funcion para depositar
 
      if(isNaN(cantidad)|| cantidad <= 0){
-        console.log(`Error. la cantidad no es valida`);
+        console.log(`Error. la cantidad no es valida`); // verificamos que la cantidad a depositar sea un numero y sea positiva para poder ingresar de lo contrario no se deposita
         return;
      }
-     const cuenta = cuentas.find(cuenta => cuenta.nombre === nombre);
+     const cuenta = cuentas.find(cuenta => cuenta.nombre === nombre); // con .find encontramos la cuenta a la que queremos depositar el dinero
 
      if(cuenta){
         cuenta.saldo += parseFloat(cantidad);
-        console.log(`se ha depositado ${cantidad} en la cuenta de ${nombre} nuevo saldo ${cuenta.saldo}`);
+        console.log(`se ha depositado ${cantidad} en la cuenta de ${nombre} nuevo saldo ${cuenta.saldo}`); // en este segmento vamos a sumar el dinero depositado a la cuenta y si en el vector no la tenemos lanzamos el mensaje de no encontrada
      } else {
         console.log(" no se encontro la cuenta");
      }
 
 }
-function retiroDinero (nombre, cantidad){
+function retiroDinero (nombre, cantidad){  // creacion funcion retiro de la cuenta deseada y su monto a retirar
     if(isNaN(cantidad)|| cantidad <= 0){
         console.log(`Error. la cantidad no es valida`);
         return;
      }
-     const cuenta = cuentas.find(cuenta => cuenta.nombre === nombre);
+     const cuenta = cuentas.find(cuenta => cuenta.nombre === nombre); // como ya sabemos .find encontramos la cuenta para retirar
 
      if(cuenta){
         if(cuenta.saldo >= cantidad){
-            cuenta.saldo -= parseFloat(cantidad);
+            cuenta.saldo -= parseFloat(cantidad);     // si realizamos el retiro con exito debemos hacer la resta del dinero y mostrar el nuevo saldo que dejamos en la cuenta
             console.log(`se retiro ${cantidad} de cuenta ${nombre} nuevo saldo ${cuenta.saldo}`);
-        } else {
+        } else {                                // si no hay suficiente dinero lanzamos el mensajero de la falla por falta de dinero
             console.log("No se realizo con exito por falta de dinero ");
         }
      }
 }
 
-function consultarSaldo (nombre){
-    const cuenta = cuentas.find(cuenta => cuenta.nombre === nombre);
+function consultarSaldo (nombre){  // creacion de funcion para saber el saldo de la cuenta
+    const cuenta = cuentas.find(cuenta => cuenta.nombre === nombre); // aca buscamos la cuenta segun el nombre
 
        if (cuenta){
-        console.log(`Sldo de su cuenta ${nombre} es ${cuenta.saldo}`);
+        console.log(`Sldo de su cuenta ${nombre} es ${cuenta.saldo}`); // luego de encontrar el nombre de la cuenta lo decimos con cuenta.saldo y si no es encontrada en el vector lanzamos el mensaje
        } else {
-        console.log("Error. cuenta no encontrada");
+        console.log("Error. cunta no encontrada");
        }
 }
 
-function listaCuentas (){
-    if (cuentas.length === 0) {
+function listaCuentas (){  // fundion para tener en lista todas las cuentas que logramos crear en nuestro vector
+    if (cuentas.length === 0) { // aca es el tamaño del vector o por decir cuantas cuentas creamos si el tamaño es 0 decimos no hay cuentas creadas
         console.log ("No se ven cuentas creadas");
         return;
     }
-        console.log("cuenta creada con exito");
-        cuentas.forEach(cuenta => {
+        console.log("cuenta creada con exito"); 
+        cuentas.forEach(cuenta => {     // con estos elemestos podemos imprimir cada cuenta creada con su saldo 
             console.log(`${cuenta.nombre} ${cuenta.saldo}`);
         });
 
 }
-function menu (){
+function menu (){   // creacion funcion menu, es decir las funciones que se pueden hacer en el banco
    let banco = false;
 
    while(banco){
