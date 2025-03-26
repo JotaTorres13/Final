@@ -73,19 +73,19 @@ function menu (){   // creacion funcion menu, es decir las funciones que se pued
    while(banco){
     console.log("\n Menú Banco ");
     console.log("1. Crear cuenta");
-    console.log("2. Depositar dinero");
+    console.log("2. Depositar dinero");  // TODAS LAS OPCIONES QUE QUEREMOS PARA MOVERNOS EN EL BANCO
     console.log("3. Retirar dinero");
     console.log("4. Consultar saldo");
     console.log("5. Listar cuentas");
     console.log("6. Salir");
 
-    let opcion = prompt("elegir una opcion entre 1-6");
+    let opcion = prompt("elegir una opcion entre 1-6");  // Desde aca son todos los casos o opciones que tenemos segun escojamos y usamos const para asegurar de que las variables sean constante y no nos cambien
 
-      switch (opcion){
+      switch (opcion){   // 
         case 1:  
-        const nombreCuenta = prompt("Ingrese el nombre para la nueva cuenta: ");
-        const saldoIn = parseFloat(prompt("Ingrese el saldo inicial de la cuenta: "));
-        crearCuenta(nombreCuenta, saldoIn);
+        const nombreCuenta = prompt("Ingrese el nombre para la nueva cuenta: "); // pedimos que ingrese el nombre asignado a la cuenta
+        const saldoIn = parseFloat(prompt("Ingrese el saldo inicial de la cuenta: ")); // pedimos el saldo inicial lo declaramos flotante por ser numero decimal
+        crearCuenta(nombreCuenta, saldoIn); // se crea la cuenta con el nombre y saldo
         break;
     case 2:  
         const nombreDeposito = prompt("Ingrese el nombre de la cuenta para depositar: ");
