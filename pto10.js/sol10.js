@@ -106,7 +106,7 @@ function menu (){   // creacion funcion menu, es decir las funciones que se pued
         break;
     case 6:  
         console.log("¡Adios!");
-        salir = true;  
+        banco = true;  
         break;
     default:
         console.log("Opción inválida. ");
