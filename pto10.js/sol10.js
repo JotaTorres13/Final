@@ -1,15 +1,15 @@
-let cuentas = []
-function crearCuenta(nombre,saldoIn) {
+let cuentas = [] // aca estoy declarando el vector llamado cuentas y vamos almacernas las cuentas creadas
+function crearCuenta(nombre,saldoIn) { // empiezo la funcion para crear la cuenta
  
-     if (isNaN(saldoIn || saldoIn < 0)){
+     if (isNaN(saldoIn || saldoIn < 0)){  // si saldo inicial es un numero y es menor a 0 tira el error ya que es invalido 
         console.log("Error, DATO NO VALIDO");
         return;
      }
-     const cuenta = {
+     const cuenta = { // si la parte de arriba que es como la verificacion cumple pasa aca para crear la cuenta como lo es el nombre y el saldo
         nombre: nombre,
         saldo: parseFloat(saldoIn)
      };
-     cuentas.push(cuenta);
+     cuentas.push(cuenta); // despues de realizar el paso anterior usamos el .push para subir la cuenta a nuestro vector y lanzamos el mensaje de cuenta creada y su saldo
      console.log(`cuenta creada con exito${nombre} y tu saldo es ${saldoIn}`);
 
 }
